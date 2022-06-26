@@ -8,7 +8,7 @@ public class Assignment3Part2 extends TextProgram {
    * It is start method
    */
   public void run() {
-    operation(input());
+    operation(readInt("Enter a number: "));
     println("The end.");
   }
 
@@ -43,13 +43,5 @@ public class Assignment3Part2 extends TextProgram {
     int result = 3*num + 1;
     println(num + " is odd so I make 3n + 1: " + result);
     return result;
-  }
-
-  /**
-   * Method for user's input on console a number.
-   * @return int value of variable
-   */
-  private int input() {
-    return readInt("Enter a number: ");
   }
 }

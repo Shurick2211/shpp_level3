@@ -13,21 +13,12 @@ public class Assignment3Part1 extends TextProgram {
    */
   public void run() {
     //ask user's time spends for exercise
-    for (int day = 0; day < week.length; day++) week[day] = input(day+1);
+    for (int day = 0; day < week.length; day++)
+      week[day] = readInt("How many minutes did you do on day " + (day+1) + "? ");
     //check Cardiovascular health
     cardiovascularHealth();
     //check Blood pressure
     bloodPressure();
-  }
-
-  /**
-   * Method for user's input on console how many minutes per day
-   * was spends for exercise
-   * @param dayOnWeek it is day's number
-   * @return int how many minutes per day was spends for exercise
-   */
-  private int input(int dayOnWeek) {
-    return readInt("How many minutes did you do on day " + dayOnWeek + "? ");
   }
 
   /**
