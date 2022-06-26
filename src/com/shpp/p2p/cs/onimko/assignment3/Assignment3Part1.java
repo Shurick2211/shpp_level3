@@ -4,6 +4,7 @@ import com.shpp.cs.a.console.TextProgram;
 import java.util.Arrays;
 
 public class Assignment3Part1 extends TextProgram {
+
   //Array a week
   int [] week = new int[7];
 
@@ -23,11 +24,10 @@ public class Assignment3Part1 extends TextProgram {
    * Method for user's input on console how many minutes per day
    * was spends for exercise
    * @param dayOnWeek it is day's number
-   * @return double value of variable
+   * @return int how many minutes per day was spends for exercise
    */
   private int input(int dayOnWeek) {
-    print("How many minutes did you do on day " + dayOnWeek + "? ");
-    return readInt();
+    return readInt("How many minutes did you do on day " + dayOnWeek + "? ");
   }
 
   /**
@@ -51,5 +51,4 @@ public class Assignment3Part1 extends TextProgram {
     if (count >= 3) println("Great job! You've done enough exercise to keep a low blood pressure.");
     else println("You needed to train hard for at least "+(3-count)+" more day(s) a week!");
   }
-
 }
