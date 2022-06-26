@@ -11,4 +11,12 @@ public class Assignment3Part5 extends TextProgram {
 
   }
 
+  /**
+   * Method imitates a coin
+   * @return true - eagle; false - coin.
+   */
+  private boolean eagleAndTails() {
+    return Math.random() > 0.5 ? true : false;
+  }
+
 }

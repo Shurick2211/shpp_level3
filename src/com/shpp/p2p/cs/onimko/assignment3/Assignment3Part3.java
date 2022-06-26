@@ -5,7 +5,7 @@ import com.shpp.cs.a.console.TextProgram;
 public class Assignment3Part3 extends TextProgram {
 
   /**
-   * It is start method
+   * It is start method, that print result
    */
   public void run() {
     println(
