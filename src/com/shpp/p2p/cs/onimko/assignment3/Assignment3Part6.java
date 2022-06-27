@@ -1,6 +1,9 @@
 package com.shpp.p2p.cs.onimko.assignment3;
 
+import acm.graphics.GOval;
 import com.shpp.cs.a.graphics.WindowProgram;
+
+import java.awt.*;
 
 public class Assignment3Part6 extends WindowProgram {
 
@@ -21,6 +24,26 @@ public class Assignment3Part6 extends WindowProgram {
    * It is start method, where print result
    */
   public void run() {
+
+    GOval circle = new GOval (120,25,30,30);
+    circle.setColor(Color.GREEN);
+    circle.setFillColor(Color.BLUE);
+    circle.setFilled(true);
+    add(circle);
+    println(getWidth()-30);
+    double sin;
+    for (int i = 0; i<98; i++){
+      sin = Math.sin(i);
+      pause(100);
+
+        circle.move(0 ,(100)*sin);
+
+      //println((int)circle.getY() + " : " + sin );
+
+
+    }
+
+
 
   }
 

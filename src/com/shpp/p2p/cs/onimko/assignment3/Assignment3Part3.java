@@ -79,7 +79,6 @@ public class Assignment3Part3 extends TextProgram {
       if(!Character.isDigit(c)) break;
       rez +=c;
     }
-    println(rez);
     return rez.equals("") ? 0 : Double.parseDouble(rez);
   }
 }
