@@ -22,7 +22,7 @@ public class Assignment3Part1 extends TextProgram {
   public void run() {
     //ask user's time spends for exercise
     for (int day = 0; day < week.length; day++)
-      week[day] = readInt("How many minutes did you do on day " + (day+1) + "? ");
+      week[day] = checkInput(readLine("How many minutes did you do on day " + (day+1) + "? "));
     //check Cardiovascular health
     cardiovascularHealth();
     //check Blood pressure
@@ -65,4 +65,20 @@ public class Assignment3Part1 extends TextProgram {
   private int dayCounter (int minutes) {
     return Arrays.stream(week).filter(day -> day > minutes).toArray().length;
   }
+
+  /**
+   * Method always return number of int.
+   * If input data don't include digits - return 0.
+   * @param str input data
+   * @return int number
+   */
+  private int checkInput(String str) {
+    String rez = "";
+    for (char c:str.toCharArray()) {
+      if(!Character.isDigit(c)) break;
+      rez +=c;
+    }
+    return rez.equals("") ? 0 : Integer.parseInt(rez);
+  }
 }
+

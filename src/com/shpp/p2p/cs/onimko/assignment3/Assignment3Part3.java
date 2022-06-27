@@ -10,7 +10,9 @@ public class Assignment3Part3 extends TextProgram {
   public void run() {
     println(
         "Result = " +
-        raiseToPower(readDouble("Enter base: "), readInt("Enter power: "))
+        raiseToPower(
+                checkDouble(readLine("Enter base: ")),
+                checkInt(readLine("Enter power: ")))
     );
   }
 
@@ -36,5 +38,48 @@ public class Assignment3Part3 extends TextProgram {
     double result = 1;
     for (int i = 0; i < exponent; i++) result = result * base;
     return result;
+  }
+
+  /**
+   * Method always return number of int.
+   * If input data don't include digits - return 0.
+   * @param str input data
+   * @return int number
+   */
+  private int checkInt(String str) {
+    String rez = "";
+    for (char c:str.toCharArray()) {
+      if(!(Character.isDigit(c) || c == '-')) break;
+      rez +=c;
+    }
+    return rez.equals("") ? 0 : Integer.parseInt(rez);
+  }
+
+  /**
+   * Method always return number of double.
+   * If input data don't include digits - return 0.
+   * @param str input data
+   * @return double number
+   */
+  private double checkDouble(String str) {
+    String rez = "";
+    if (str.startsWith("-")) {
+      rez += "-";
+      str = str.substring(1);
+    }
+    if (str.startsWith("0.") || str.startsWith("0,")) {
+      rez += "0.";
+      str = str.substring(2);
+    }
+    if (str.startsWith(".") || str.startsWith( "," )) {
+      rez += "0.";
+      str = str.substring(1);
+    }
+    for (char c:str.toCharArray()) {
+      if(!Character.isDigit(c)) break;
+      rez +=c;
+    }
+    println(rez);
+    return rez.equals("") ? 0 : Double.parseDouble(rez);
   }
 }
