@@ -1,12 +1,10 @@
 package com.shpp.p2p.cs.onimko.assignment3;
 
 import acm.graphics.GLabel;
-import acm.graphics.GOval;
 import acm.graphics.GRect;
 import com.shpp.cs.a.graphics.WindowProgram;
 
 import java.awt.*;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Assignment3Part6 extends WindowProgram {
@@ -72,7 +70,7 @@ public class Assignment3Part6 extends WindowProgram {
     double dxUP = (getWidth()-endXUP)/ALL_FRAMES;
     double dxDwn = (getWidth()-endXUP)/ALL_FRAMES;
     // main cycle
-    for (int i = 0; i < ALL_FRAMES; i++) {
+    for (int i = 1; i < ALL_FRAMES; i++) {
       if (upText.getX() >= endXUP)
       upText.setLocation(upText.getX()-dxUP,upText.getY());
       if (dwnText.getX() <= endXDwn)
@@ -87,22 +85,29 @@ public class Assignment3Part6 extends WindowProgram {
    * Method draws flag
    */
   private void drawFlag() {
+    // blue part
     GRect upLine = new GRect(0,0, getWidth(),getHeight() /2);
     upLine.setFilled(true);
     upLine.setColor(Color.BLUE);
+    // yellow part
     GRect downLine = new GRect(0,getHeight() /2, getWidth(), getHeight()/2);
     downLine.setFilled(true);
     downLine.setColor(Color.YELLOW);
+    //add
     add(upLine);
     add(downLine);
   }
 
+  /**
+   * Method for create text label
+   * @param text that is print
+   * @param color of text
+   * @return new GLabel
+   */
   private GLabel label (String text, Color color) {
     GLabel label = new GLabel(text,getWidth(),getHeight()/6);
     label.setColor(color);
     label.setFont(FONT);
     return label;
   }
-
-
 }

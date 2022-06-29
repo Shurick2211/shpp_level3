@@ -17,7 +17,7 @@ public class ChaosGame  extends WindowProgram {
         while(true) {
             moveRandomly(pt);
             plotPixel(pt.getX(), pt.getY());
-            pause(500);
+            pause(1);
         }
     }
 
