@@ -4,8 +4,6 @@ import com.shpp.cs.a.console.TextProgram;
 
 public class Assignment3Part2 extends TextProgram {
 
-  private final int N = 17;
-
   /**
    * It is start method
    */

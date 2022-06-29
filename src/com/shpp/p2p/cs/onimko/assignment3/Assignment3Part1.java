@@ -14,8 +14,9 @@ public class Assignment3Part1 extends TextProgram {
   /* minutes per day for cardiovascular health*/
   private final int MINUTES_FOR_BLOOD_PRESSURE = 40;
 
-  /* Array a week */
+  /* Array for a week */
   int [] week = new int[7];
+
   /**
    * It is start method, where print result
    */

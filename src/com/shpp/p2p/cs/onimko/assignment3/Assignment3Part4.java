@@ -43,6 +43,11 @@ public class Assignment3Part4 extends WindowProgram {
       }
   }
 
+  /**
+   * Method creates bricks in the position (x,y)
+   * @param x coordinate
+   * @param y coordinate
+   */
   private void brick (double x, double y) {
     GRect brick = new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT);
     brick.setColor(Color.BLUE);
