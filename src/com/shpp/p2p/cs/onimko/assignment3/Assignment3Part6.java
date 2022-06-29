@@ -53,26 +53,33 @@ public class Assignment3Part6 extends WindowProgram {
    * It is start method, where print result
    */
   public void run() {
+    // time of starts app
     long startTime = new Date().getTime();
+    // Flag
     drawFlag();
+    // creates up text
     GLabel upText = label( UP_STR, Color.YELLOW);
     upText.setLocation(getWidth(), getHeight()/6+upText.getHeight()/2);
+    add(upText);
+    // creates down text
     GLabel dwnText = label( DWN_STR, Color.BLUE);
     dwnText.setLocation(-dwnText.getWidth(),getHeight()/2+getHeight()/6+upText.getHeight()/2);
-    add(upText);
     add(dwnText);
+    // ends positions
     double endXUP = (getWidth() - upText.getWidth())/2;
-    double dxUP = (getWidth()-endXUP)/ALL_FRAMES;
     double endXDwn = (getWidth() - upText.getWidth())/2;
+    // coordinate increment
+    double dxUP = (getWidth()-endXUP)/ALL_FRAMES;
     double dxDwn = (getWidth()-endXUP)/ALL_FRAMES;
+    // main cycle
     for (int i = 0; i < ALL_FRAMES; i++) {
       if (upText.getX() >= endXUP)
       upText.setLocation(upText.getX()-dxUP,upText.getY());
       if (dwnText.getX() <= endXDwn)
       dwnText.setLocation(dwnText.getX()+dxDwn, dwnText.getY());
       pause(FRAME_PAUSE);
-
     }
+    // prints time of work app
     println("Time work: " + (new Date().getTime()-startTime)/1000 +" sec.");
   }
 
