@@ -21,7 +21,7 @@ public class Assignment3Part6 extends WindowProgram {
    * not directly use these constants in your program; instead, use getWidth() and
    * getHeight(), which return the *exact* width and height of the window.
    */
-  public static final int APPLICATION_WIDTH = 300;
+  public static final int APPLICATION_WIDTH = 500;
   public static final int APPLICATION_HEIGHT = (int) (APPLICATION_WIDTH/3*2+MENU_SIZE);
 
   /*
