@@ -6,6 +6,8 @@ import acm.graphics.GRect;
 import com.shpp.cs.a.graphics.WindowProgram;
 
 import java.awt.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Assignment3Part6 extends WindowProgram {
 
@@ -51,6 +53,7 @@ public class Assignment3Part6 extends WindowProgram {
    * It is start method, where print result
    */
   public void run() {
+    long startTime = new Date().getTime();
     drawFlag();
     GLabel upText = label( UP_STR, Color.YELLOW);
     upText.setLocation(getWidth(), getHeight()/6+upText.getHeight()/2);
@@ -68,8 +71,9 @@ public class Assignment3Part6 extends WindowProgram {
       if (dwnText.getX() <= endXDwn)
       dwnText.setLocation(dwnText.getX()+dxDwn, dwnText.getY());
       pause(FRAME_PAUSE);
-    }
 
+    }
+    println("Time work: " + (new Date().getTime()-startTime)/1000 +" sec.");
   }
 
   /**
