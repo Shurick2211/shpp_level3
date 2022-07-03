@@ -11,8 +11,10 @@ public class Assignment3Part4 extends WindowProgram {
    */
   private static final double BRICK_HEIGHT = 40;
   private static final double BRICK_WIDTH = 100;
+
   /* The const is a number of bricks in base */
   private static final int BRICKS_IN_BASE = 7;
+
   /*
    * The default height of the window's menu.
    */
