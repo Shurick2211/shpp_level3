@@ -43,6 +43,11 @@ public class Assignment3Part4 extends WindowProgram {
       }
   }
 
+  /**
+   * Method draws brick
+   * @param x start point (up-left) "X"
+   * @param y start point (up-left) "Y"
+   */
   private void brick (double x, double y) {
     GRect brick = new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT);
     brick.setColor(Color.BLUE);
