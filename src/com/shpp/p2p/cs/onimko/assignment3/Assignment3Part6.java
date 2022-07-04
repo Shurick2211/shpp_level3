@@ -1,12 +1,10 @@
 package com.shpp.p2p.cs.onimko.assignment3;
 
 import acm.graphics.GLabel;
-import acm.graphics.GOval;
 import acm.graphics.GRect;
 import com.shpp.cs.a.graphics.WindowProgram;
 
 import java.awt.*;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Assignment3Part6 extends WindowProgram {
@@ -32,9 +30,9 @@ public class Assignment3Part6 extends WindowProgram {
   /*
    * Frame const
    */
-  private final double FRAME_PER_SECOND = 24;
-  private final double FRAME_PAUSE = 1000 / FRAME_PER_SECOND;
-  private final int ALL_FRAMES = (int) (TIME_VIDEO * 1000 / FRAME_PAUSE);
+  private final int FRAME_PER_SECOND = 24;
+  private final int FRAME_PAUSE = 1000 / FRAME_PER_SECOND;
+  private final int ALL_FRAMES = TIME_VIDEO * 1000 / FRAME_PAUSE;
 
   /*
    * String's consts for labels
@@ -53,50 +51,46 @@ public class Assignment3Part6 extends WindowProgram {
    * It is start method, where print result
    */
   public void run() {
-    // time of starts app
-    long startTime = new Date().getTime();
     // Flag
     drawFlag();
     // creates up text
-    GLabel upText = label( UP_STR, Color.YELLOW);
-    upText.setLocation(getWidth(), getHeight()/6+upText.getHeight()/2);
-    add(upText);
+    GLabel upText = text(true, UP_STR, Color.YELLOW);
     // creates down text
-    GLabel dwnText = label( DWN_STR, Color.BLUE);
-    dwnText.setLocation(-dwnText.getWidth(),getHeight()/2+getHeight()/6+upText.getHeight()/2);
-    add(dwnText);
+    GLabel dwnText = text(false, DWN_STR, Color.BLUE);
     // ends positions
-    double endXUP = (getWidth() - upText.getWidth())/2;
-    double endXDwn = (getWidth() - upText.getWidth())/2;
+    double endXUP =  (getWidth() - upText.getWidth())/2;
+    double endXDwn = (getWidth() - dwnText.getWidth())/2;
     // coordinate increment
     double dxUP = (getWidth()-endXUP)/ALL_FRAMES;
-    double dxDwn = (getWidth()-endXUP)/ALL_FRAMES;
+    double dxDwn = (getWidth()-endXDwn)/ALL_FRAMES;
+    // time of starts anime
+    long startTime = new Date().getTime();
     // main cycle
-    for (int i = 0; i < ALL_FRAMES; i++) {
-      if (upText.getX() >= endXUP)
-      upText.setLocation(upText.getX()-dxUP,upText.getY());
-      if (dwnText.getX() <= endXDwn)
-      dwnText.setLocation(dwnText.getX()+dxDwn, dwnText.getY());
+    for (int i = 1; i < ALL_FRAMES; i++) {
+      upText.move(-dxUP,0);
+      dwnText.move(dxDwn,0);
       pause(FRAME_PAUSE);
     }
-    // prints time of work app
-    println("Time work: " + (new Date().getTime()-startTime)/1000 +" sec.");
+    // prints time of work anime
+    println("Time work: " + (new Date().getTime()-startTime) +" milli sec.");
   }
 
   /**
    * Method draws flag
    */
   private void drawFlag() {
-    GRect upLine = new GRect(0,0, getWidth(),getHeight() /2);
-    upLine.setFilled(true);
-    upLine.setColor(Color.BLUE);
-    GRect downLine = new GRect(0,getHeight() /2, getWidth(), getHeight()/2);
-    downLine.setFilled(true);
-    downLine.setColor(Color.YELLOW);
-    add(upLine);
-    add(downLine);
+    // blue part
+    drawLine(0,0, Color.BLUE);
+    // yellow part
+    drawLine(0,getHeight() /2, Color.YELLOW);
   }
 
+  /**
+   * Method for create text label
+   * @param text that is print
+   * @param color of text
+   * @return new GLabel
+   */
   private GLabel label (String text, Color color) {
     GLabel label = new GLabel(text,getWidth(),getHeight()/6);
     label.setColor(color);
@@ -104,5 +98,38 @@ public class Assignment3Part6 extends WindowProgram {
     return label;
   }
 
+  /**
+   * Method draws flag's line
+   * @param x coordinate X up-left point
+   * @param y coordinate Y up-left point
+   */
+  private void drawLine(double x, double y, Color color) {
+    GRect line = new GRect(x,y, getWidth(),getHeight() /2);
+    line.setFilled(true);
+    line.setColor(color);
+    add(line);
+  }
 
+  /**
+   * Method creates a label
+   * @param isUp true - for up line of flag, false -  for down line of flag
+   * @param str that is print
+   * @param color of text
+   * @return GLabel
+   */
+  private GLabel text(boolean isUp, String str, Color color) {
+    GLabel text = label( str, color);
+    text.setFont(FONT);
+    //start position x,y
+    double x = 0;
+    double y = 0;
+    if (isUp) x = getWidth();
+    else {
+      x = -text.getWidth();
+      y = getHeight()/2;
+    }
+    text.setLocation(x, y + getHeight()/6+text.getHeight()/2);
+    add(text);
+    return text;
+  }
 }

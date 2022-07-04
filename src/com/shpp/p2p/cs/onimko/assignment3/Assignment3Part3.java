@@ -48,8 +48,14 @@ public class Assignment3Part3 extends TextProgram {
    */
   private int checkInt(String str) {
     String rez = "";
+    // if number is negative
+    if (str.startsWith("-")) {
+      rez += "-";
+      str = str.substring(1);
+    }
+    // reads digits in the number
     for (char c:str.toCharArray()) {
-      if(!(Character.isDigit(c) || c == '-')) break;
+      if(!(Character.isDigit(c))) break;
       rez +=c;
     }
     return rez.equals("") ? 0 : Integer.parseInt(rez);

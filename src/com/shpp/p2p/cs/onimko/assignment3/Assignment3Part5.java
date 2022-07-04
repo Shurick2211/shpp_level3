@@ -1,5 +1,6 @@
 package com.shpp.p2p.cs.onimko.assignment3;
 
+import acm.util.RandomGenerator;
 import com.shpp.cs.a.console.TextProgram;
 
 public class Assignment3Part5 extends TextProgram {
@@ -39,7 +40,7 @@ public class Assignment3Part5 extends TextProgram {
    * @return true - the eagle; false - the tails.
    */
   private boolean eagleAndTails() {
-    return Math.random() > 0.5 ? true : false;
+    return new RandomGenerator().nextBoolean();
   }
 
 }
