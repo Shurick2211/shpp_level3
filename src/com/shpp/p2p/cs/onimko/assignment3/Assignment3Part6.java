@@ -85,18 +85,6 @@ public class Assignment3Part6 extends WindowProgram {
     drawLine(0,getHeight() /2, Color.YELLOW);
   }
 
-  /**
-   * Method for create text label
-   * @param text that is print
-   * @param color of text
-   * @return new GLabel
-   */
-  private GLabel label (String text, Color color) {
-    GLabel label = new GLabel(text,getWidth(),getHeight()/6);
-    label.setColor(color);
-    label.setFont(FONT);
-    return label;
-  }
 
   /**
    * Method draws flag's line
@@ -118,7 +106,8 @@ public class Assignment3Part6 extends WindowProgram {
    * @return GLabel
    */
   private GLabel text(boolean isUp, String str, Color color) {
-    GLabel text = label( str, color);
+    GLabel text = new GLabel(str);
+    text.setColor(color);
     text.setFont(FONT);
     //start position x,y
     double x = 0;

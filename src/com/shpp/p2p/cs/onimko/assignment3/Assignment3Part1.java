@@ -63,7 +63,7 @@ public class Assignment3Part1 extends TextProgram {
    * @return the number of days.
    */
   private int dayCounter (int minutes) {
-    return Arrays.stream(week).filter(day -> day > minutes).toArray().length;
+    return Arrays.stream(week).filter(day -> day >= minutes).toArray().length;
   }
 
   /**

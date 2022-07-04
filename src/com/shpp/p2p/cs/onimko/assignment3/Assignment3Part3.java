@@ -69,18 +69,22 @@ public class Assignment3Part3 extends TextProgram {
    */
   private double checkDouble(String str) {
     String rez = "";
+    // if number is negative
     if (str.startsWith("-")) {
       rez += "-";
       str = str.substring(1);
     }
+    // if user wrote a number, that starts 0
     if (str.startsWith("0.") || str.startsWith("0,")) {
       rez += "0.";
       str = str.substring(2);
     }
+    // if user did not writs 0 in start of number
     if (str.startsWith(".") || str.startsWith( "," )) {
       rez += "0.";
       str = str.substring(1);
     }
+    // reads digits in the number
     for (char c:str.toCharArray()) {
       if(!Character.isDigit(c)) break;
       rez +=c;
