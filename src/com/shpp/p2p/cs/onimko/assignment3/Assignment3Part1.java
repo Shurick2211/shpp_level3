@@ -13,6 +13,8 @@ public class Assignment3Part1 extends TextProgram {
   private final int DAY_FOR_BLOOD_PRESSURE = 3;
   /* minutes per day for cardiovascular health*/
   private final int MINUTES_FOR_BLOOD_PRESSURE = 40;
+  /* minutes per day for cardiovascular health*/
+  private final int MINUTES_PER_DAY = 60 * 24;
 
   /* Array a week */
   int [] week = new int[7];
@@ -22,7 +24,7 @@ public class Assignment3Part1 extends TextProgram {
   public void run() {
     //ask user's time spends for exercise
     for (int day = 0; day < week.length; day++)
-      week[day] = checkInput(readLine("How many minutes did you do on day " + (day+1) + "? "));
+      week[day] = checkInput(day);
     //check Cardiovascular health
     cardiovascularHealth();
     //check Blood pressure
@@ -67,18 +69,16 @@ public class Assignment3Part1 extends TextProgram {
   }
 
   /**
-   * Method always return number of int.
-   * If input data don't include digits - return 0.
-   * @param str input data
+   * Method return number of minutes.
+   * If input data is wrong - input repeat.
+   * @param  day in the week[]
    * @return int number
    */
-  private int checkInput(String str) {
-    String rez = "";
-    for (char c:str.toCharArray()) {
-      if(!Character.isDigit(c)) break;
-      rez +=c;
-    }
-    return rez.equals("") ? 0 : Integer.parseInt(rez);
+  private int checkInput(int day) {
+    int rez = -1;
+    while (rez < 0 || rez >= MINUTES_PER_DAY)
+    rez = readInt("How many minutes did you do on day " + (day+1) + "? ");
+    return rez;
   }
 }
 
