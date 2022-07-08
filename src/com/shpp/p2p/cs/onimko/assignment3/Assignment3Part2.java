@@ -8,10 +8,7 @@ public class Assignment3Part2 extends TextProgram {
    * It is start method
    */
   public void run() {
-    println((Integer.MAX_VALUE - 1) / 3 * 2);
-    operation(
-            checkInput()
-    );
+    operation(checkInput());
     println("The end.");
   }
 
