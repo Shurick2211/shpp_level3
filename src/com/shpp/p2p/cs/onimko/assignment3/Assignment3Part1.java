@@ -75,9 +75,10 @@ public class Assignment3Part1 extends TextProgram {
    * @return int number
    */
   private int checkInput(int day) {
-    int rez = -1;
-    while (rez < 0 || rez >= MINUTES_PER_DAY)
-    rez = readInt("How many minutes did you do on day " + (day+1) + "? ");
+    int rez;
+    do {
+      rez = readInt("How many minutes did you do on day " + (day+1) + "? ");
+    } while (rez < 0 || rez >= MINUTES_PER_DAY);
     return rez;
   }
 }
