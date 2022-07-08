@@ -25,11 +25,11 @@ public class Assignment3Part4 extends WindowProgram {
    * not directly use these constants in your program; instead, use getWidth() and
    * getHeight(), which return the *exact* width and height of the window.
    */
-  public static final int APPLICATION_WIDTH = (int) ((BRICKS_IN_BASE + 2) * BRICK_WIDTH);
+  public static final int APPLICATION_WIDTH =  (int) ((BRICKS_IN_BASE + 2) * BRICK_WIDTH);
   public static final int APPLICATION_HEIGHT = (int) (MENU_SIZE + BRICK_HEIGHT*BRICKS_IN_BASE);
 
   /**
-   * It is start method
+   * It is start method 
    */
   public void run() {
     drawPyramid();
@@ -39,9 +39,10 @@ public class Assignment3Part4 extends WindowProgram {
    * Method draws pyramid
    */
   private void drawPyramid() {
+    double x = (getWidth() - BRICKS_IN_BASE * BRICK_WIDTH) / 2;
     for (int i = 0; i < BRICKS_IN_BASE; i++)
-      for (int j = BRICKS_IN_BASE - i; j >=1; j--) {
-        brick(BRICK_WIDTH * j + BRICK_WIDTH / 2 * i, this.getHeight() - (i + 1) * BRICK_HEIGHT);
+      for (int j = 0; j < BRICKS_IN_BASE - i; j++) {
+        brick(x + BRICK_WIDTH * j + BRICK_WIDTH / 2 * i, this.getHeight() - (i + 1) * BRICK_HEIGHT);
       }
   }
 
