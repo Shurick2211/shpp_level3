@@ -70,9 +70,15 @@ public class Assignment3Part6 extends WindowProgram {
       upText.move(-dxUP,0);
       dwnText.move(dxDwn,0);
       pause(FRAME_PAUSE);
+      // time control for weak computers
+      long time = new Date().getTime()-startTime;
+      if (time >= TIME_VIDEO * 1000) {
+        // prints time of work anime
+        println("Time work: " + time +" milli sec.");
+        break;
+      }
     }
-    // prints time of work anime
-    println("Time work: " + (new Date().getTime()-startTime) +" milli sec.");
+
   }
 
   /**
