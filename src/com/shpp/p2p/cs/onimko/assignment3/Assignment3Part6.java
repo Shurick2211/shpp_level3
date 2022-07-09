@@ -30,7 +30,7 @@ public class Assignment3Part6 extends WindowProgram {
   /*
    * Frame const
    */
-  private final int FRAME_PER_SECOND = 24;
+  private final int FRAME_PER_SECOND = 25;
   private final int FRAME_PAUSE = 1000 / FRAME_PER_SECOND;
   private final int ALL_FRAMES = TIME_VIDEO * 1000 / FRAME_PAUSE;
 
@@ -63,22 +63,24 @@ public class Assignment3Part6 extends WindowProgram {
     // coordinate increment
     double dxUP = (getWidth()-endXUP)/ALL_FRAMES;
     double dxDwn = (getWidth()-endXDwn)/ALL_FRAMES;
-    // time of starts anime
+    // time's var
     long startTime = new Date().getTime();
+    int currentTime = 0;
+    int expectedTime = 0;
     // main cycle
-    for (int i = 1; i < ALL_FRAMES; i++) {
+    for (int i = 1; i <= ALL_FRAMES; i++) {
       upText.move(-dxUP,0);
       dwnText.move(dxDwn,0);
-      pause(FRAME_PAUSE);
       // time control for weak computers
-      long time = new Date().getTime()-startTime;
-      if (time >= TIME_VIDEO * 1000) {
-        // prints time of work anime
-        println("Time work: " + time +" milli sec.");
-        break;
-      }
+      if (currentTime > expectedTime ) {
+        pause(currentTime - expectedTime);
+        println(i);
+      } else  pause(FRAME_PAUSE);
+      expectedTime = FRAME_PAUSE * (i);
+      currentTime = (int) (new Date().getTime()-startTime);
     }
-
+    // prints time of work anime
+    println("Time work: " + currentTime +" milli sec.");
   }
 
   /**
