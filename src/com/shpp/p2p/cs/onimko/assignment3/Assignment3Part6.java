@@ -74,7 +74,6 @@ public class Assignment3Part6 extends WindowProgram {
       // time control for weak computers
       if (currentTime > expectedTime ) {
         pause(currentTime - expectedTime);
-        println(i);
       } else  pause(FRAME_PAUSE);
       expectedTime = FRAME_PAUSE * (i);
       currentTime = (int) (new Date().getTime()-startTime);
