@@ -16,6 +16,7 @@ public class Assignment3Part1 extends TextProgram {
 
   /* Array a week */
   int [] week = new int[7];
+
   /**
    * It is start method, where print result
    */
